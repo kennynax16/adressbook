@@ -5,14 +5,15 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreRequest;
 use App\Http\Requests\UpdateRequest;
 use App\Models\AdressBook;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AdressbookController extends Controller
 {
-    public function index(AdressBook $item)
+    public function dashboard(User $user)
     {
-        $items = AdressBook::paginate(10);
-        return view('post.index', compact('items', 'item'));
+        $users = User::paginate(10);
+        return view('dashboard', compact('users', 'user'));
     }
 
     public function create()
@@ -23,34 +24,36 @@ class AdressbookController extends Controller
     public function store(StoreRequest $request)
     {
         $data = $request->validated();
-        AdressBook::create($data);
-        return redirect()->route('index');
+        User::create($data);
+        return redirect()->route('dashboard');
     }
 
 
-    public function edit(AdressBook $item)
+    public function edit(User $user)
     {
-        return view('post.edit', compact('item'));
+        return view('post.edit', compact('user'));
     }
 
-    public function update(UpdateRequest $request, AdressBook $item)
+    public function update(UpdateRequest $request, User $user)
     {
         $data = $request->validated();
-        $item->update($data);
-        return redirect()->route('index', compact('item'));
+        $user->update($data);
+
+        return redirect()->route('dashboard');
     }
 
-    public function delete(AdressBook $item, Request $request)
+    public function delete(User $user, Request $request)
     {
-        $item->delete();
-        return redirect()->route('index', ['page' => $request->page]);
+        $user->delete();
+        return redirect()->back()->with('success');
     }
 
-    public function search(Request $request, AdressBook $item)
+    public function search(Request $request, User $user)
     {
         $s = $request->s;
-        $items = AdressBook::where('fullname', 'LIKE', "{$s}%")->orWhere('PersonalNumber', 'LIKE', "{$s}%")->orWhere('WorkNumber', 'LIKE', "{$s}%")->orWhere('AdditionalNumber', 'LIKE', "{$s}%")->paginate(10);
-        return view('post.index', compact('items', 'item'));
+        $users = User::where('name', 'LIKE', "{$s}%")->orWhere('PersonalNumber', 'LIKE', "{$s}%")->orWhere('WorkNumber', 'LIKE', "{$s}%")->paginate(10);
+        return view('dashboard', compact('users', 'user'));
 
     }
+
 }

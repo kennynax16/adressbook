@@ -22,13 +22,14 @@ class UpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'fullname'=>'string',
-            'city'=>'string',
-            'adress'=>'string',
+            'name'=>'',
+            'city'=>'',
+            'role'=>'',
+            'adress'=>'',
             'email'=>'email',
-            'PersonalNumber'=>'integer',
-            'WorkNumber'=>'integer',
-            'AdditionalNumber'=>'integer',
+            'PersonalNumber'=>'',
+            'WorkNumber'=>''
+
         ];
     }
 }

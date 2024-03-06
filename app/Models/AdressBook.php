@@ -8,5 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class AdressBook extends Model
 {
     use HasFactory;
-    protected $guarded = [];
+    protected $fillable = [
+        'name',
+        'email',
+        'role',
+        'password',
+        'city',
+        'adress',
+        'PersonalNumber',
+        'WorkNumber'
+
+    ];
 }

@@ -3,8 +3,8 @@
     <form action="{{route('store')}}" method="post">
         @csrf
         <div class="mb-3">
-            <label for="text" class="form-label">Fullname</label>
-            <input type="text"  name="fullname" class="form-control" id="text">
+            <label for="text" class="form-label">name</label>
+            <input type="text"  name="name" class="form-control" id="text">
         </div>
         <div class="mb-3">
             <label for="text" class="form-label">City</label>
@@ -26,10 +26,7 @@
             <label for="text" class="form-label">WorkNumber</label>
             <input type="text" name="WorkNumber" class="form-control" id="text">
         </div>
-        <div class="mb-3">
-            <label for="text" class="form-label">AdditionalNumber</label>
-            <input type="text" name="AdditionalNumber" class="form-control" id="text">
-        </div>
+
 
         <button type="submit" class="btn btn-primary">Create</button>
     </form>
