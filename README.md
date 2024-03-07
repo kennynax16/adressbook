@@ -1,4 +1,4 @@
-чтобы запуститить проэкт
+чтобы запуститить проект
 php artisan vendor:publish --tag=laravel-pagination
 composer require ui
 php artisan breeze:install
