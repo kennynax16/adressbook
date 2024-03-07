@@ -1,7 +1,6 @@
 чтобы запуститить проект
 php artisan vendor:publish --tag=laravel-pagination
-composer require ui
-php artisan breeze:install
+composer install
 npm install
 npm run dev
 php artisan migrate --seed
