@@ -5,8 +5,8 @@ npm install
 npm run dev  
 php artisan migrate --seed  
 
-adminpanel = {
-'login'=> 'admin@mail.ru',
-'password'=> '123321qqq'
+adminpanel = {  
+'login'=> 'admin@mail.ru',  
+'password'=> '123321qqq'  
 }
 
