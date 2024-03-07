@@ -16,18 +16,6 @@ class AdressbookController extends Controller
         return view('dashboard', compact('users', 'user'));
     }
 
-    public function create()
-    {
-        return view('post.create');
-    }
-
-    public function store(StoreRequest $request)
-    {
-        $data = $request->validated();
-        User::create($data);
-        return redirect()->route('dashboard');
-    }
-
 
     public function edit(User $user)
     {
